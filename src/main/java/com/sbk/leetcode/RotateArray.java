@@ -1,7 +1,7 @@
 package com.sbk.leetcode;
 
-public class RotateArray {
-    public void rotate(int[] nums, int k) {
+class RotateArray {
+    void rotate(int[] nums, int k) {
         int length = nums.length;
         if(nums.length == 0) return;
         int shift = k % length;
