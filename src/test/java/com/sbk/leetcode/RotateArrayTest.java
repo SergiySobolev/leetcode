@@ -8,7 +8,7 @@ import java.util.Arrays;
 import static org.junit.Assert.assertEquals;
 
 public class RotateArrayTest {
-    RotateArray rotateArray = new RotateArray();
+    private RotateArray rotateArray = new RotateArray();
 
     @Test
     public void rotate_1() {
