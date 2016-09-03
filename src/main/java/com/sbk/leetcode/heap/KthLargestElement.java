@@ -11,7 +11,7 @@ class KthLargestElement {
         int n = nums.length;
         int target = n - k;
         quickSort(nums, 0, n-1, target);
-        return nums[n-k];
+        return nums[target];
     }
 
     private void quickSort(int[] nums, int start, int end, int target){
