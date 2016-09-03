@@ -1,4 +1,4 @@
-package com.sbk.leetcode;
+package com.sbk.leetcode.math;
 
 class RotateArray {
     void rotate(int[] nums, int k) {

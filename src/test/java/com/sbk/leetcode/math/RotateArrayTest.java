@@ -1,7 +1,7 @@
-package com.sbk.leetcode;
+package com.sbk.leetcode.math;
 
+import com.sbk.leetcode.math.RotateArray;
 import org.junit.Test;
-import org.junit.experimental.theories.suppliers.TestedOn;
 
 import java.util.Arrays;
 
