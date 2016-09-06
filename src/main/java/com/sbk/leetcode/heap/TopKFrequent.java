@@ -4,16 +4,23 @@ import java.util.*;
 
 class TopKFrequent {
     List<Integer> topKFrequent(int[] nums, int k) {
+        List<Integer>[] bucket  = new List[nums.length+1];
         Map<Integer, Integer> numsCount = new HashMap<>();
         for(int n : nums) {
-            int count = numsCount.containsKey(n) ? numsCount.get(n)+1 : 1;
-            numsCount.put(n, count);
+            numsCount.put(n, numsCount.getOrDefault(n,0)+1);
         }
-        Queue<Map.Entry<Integer, Integer>> q = new PriorityQueue<>((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
-        q.addAll(numsCount.entrySet());
-        List<Integer> res = new ArrayList<>();
-        for(int i=0;i<k;i++) {
-            res.add(q.poll().getKey());
+        for(int key: numsCount.keySet()) {
+            int freq = numsCount.get(key);
+            if(bucket[freq] == null) {
+                List<Integer> freqList = new ArrayList<>();
+                bucket[freq] = freqList;
+            }
+            bucket[freq].add(key);
+        }
+        List<Integer> res =  new ArrayList<>();
+        for(int i=bucket.length-1; i>=0 && res.size()<k; i--) {
+            if(bucket[i] == null) continue;
+            res.addAll(bucket[i]);
         }
         return res;
     }
