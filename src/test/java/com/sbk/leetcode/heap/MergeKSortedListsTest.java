@@ -6,9 +6,7 @@ import static com.sbk.leetcode.heap.ListNodeUtil.fromArray;
 import static com.sbk.leetcode.heap.ListNodeUtil.toArray;
 import static org.junit.Assert.*;
 
-/**
- * Created by User on 11.09.2016.
- */
+
 public class MergeKSortedListsTest {
     private MergeKSortedLists mk = new MergeKSortedLists();
     @Test
