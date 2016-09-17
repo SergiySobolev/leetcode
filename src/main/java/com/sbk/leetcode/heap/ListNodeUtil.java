@@ -1,8 +1,8 @@
 package com.sbk.leetcode.heap;
 
 
-public class ListNodeUtil {
-    public static ListNode fromArray(int[] n) {
+class ListNodeUtil {
+    static ListNode fromArray(int[] n) {
         if (n.length == 0) {
             return null;
         }
@@ -14,7 +14,7 @@ public class ListNodeUtil {
         }
         return ln;
     }
-    public static int[] toArray(ListNode ln) {
+    static int[] toArray(ListNode ln) {
         ListNode curLN = ln;
         int length = 0;
         while(curLN != null) {
