@@ -8,6 +8,7 @@ import static org.junit.Assert.*;
 
 public class MergeKSortedListsTest {
     private MergeKSortedLists mk = new MergeKSortedLists();
+    private int[] EMPTY_ARRAY = {};
     @Test
     public void mergeKSortedLists_1() {
         ListNode first = fromArray(new int[]{1,3,5});
@@ -35,7 +36,7 @@ public class MergeKSortedListsTest {
     @Test
     public void mergeKSortedLists_4() {
         ListNode res = mk.mergeKLists(new ListNode[]{null, null});
-        assertArrayEquals(toArray(res), new int[]{});
+        assertArrayEquals(toArray(res), EMPTY_ARRAY);
     }
 
     @Test
@@ -43,5 +44,11 @@ public class MergeKSortedListsTest {
         ListNode first = fromArray(new int[]{1,2,3});
         ListNode res = mk.mergeKLists(new ListNode[]{first, null});
         assertArrayEquals(toArray(res), new int[]{1,2,3});
+    }
+
+    @Test
+    public void mergeKSortedLists_6() {
+        ListNode res = mk.mergeKLists(new ListNode[]{null, null, null});
+        assertArrayEquals(toArray(res), EMPTY_ARRAY);
     }
 }
