@@ -1,40 +1,39 @@
 package com.sbk.leetcode.heap;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
-
 class MergeKSortedLists {
+
     ListNode mergeKLists(ListNode[] listNodes) {
-        List<Integer> list = new ArrayList<>();
-        for(ListNode ln : listNodes) {
-            list.addAll(toList(ln));
-        }
-        Collections.sort(list);
-        return fromList(list);
-    }
-    private ListNode fromList(List<Integer> l) {
-        if (l == null || l.size() == 0) {
-            return null;
-        }
-        ListNode ln = new ListNode(l.get(0));
-        ListNode curN = ln;
-        for (int i = 1; i < l.size(); i++) {
-            curN.next = new ListNode(l.get(i));
-            curN = curN.next;
-        }
-        return ln;
-    }
-    private List<Integer> toList(ListNode ln) {
-        if (ln == null) return new ArrayList<>();
-        List<Integer> res = new ArrayList<>();
-        ListNode curLN = ln;
-        while(curLN != null) {
-            res.add(curLN.val);
-            curLN = curLN.next;
+        if(listNodes.length == 0) return null;
+        if(listNodes.length == 1) return listNodes[0];
+        ListNode res = mergeTwoLists(listNodes[0], listNodes[1]);
+        for(int i=2; i<listNodes.length; i++){
+            res = mergeTwoLists(res, listNodes[i]);
         }
         return res;
     }
 
+    private ListNode mergeTwoLists(ListNode l1, ListNode l2){
+        ListNode res = new ListNode(0);
+        ListNode cur = res;
+        while(true) {
+            if(l1 == null) {
+                cur.next = l2;
+                break;
+            }
+            if(l2 == null) {
+                cur.next = l1;
+                break;
+            }
+            if(l1.val < l2.val) {
+                cur.next = new ListNode(l1.val);
+                cur = cur.next;
+                l1 = l1.next;
+            } else {
+                cur.next = new ListNode(l2.val);
+                cur = cur.next;
+                l2 = l2.next;
+            }
+        }
+        return res.next;
+    }
 }
