@@ -1,21 +1,41 @@
 package com.sbk.leetcode.heap;
 
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class TwitterTest {
-    private Twitter twitter = new Twitter();
 
+    @Test
     public void twitter_scenario_1() throws Exception {
-         int userId = 1;
-         int tweetId = 10;
-         int followerId = 2;
-         int followeeId = 3;
-         Twitter obj = new Twitter();
-         obj.postTweet(userId,tweetId);
-         List<Integer> param_2 = obj.getNewsFeed(userId);
-         obj.follow(followerId,followeeId);
-         obj.unfollow(followerId,followeeId);
+        Twitter twitter = new Twitter();
+        twitter.postTweet(1, 5);
+        assertEquals(twitter.getNewsFeed(1), Arrays.asList(5));
+        twitter.follow(1, 2);
+        twitter.postTweet(2, 6);
+        assertEquals(twitter.getNewsFeed(1), Arrays.asList(6,5));
+        twitter.unfollow(1, 2);
+        twitter.getNewsFeed(1);
+        assertEquals(twitter.getNewsFeed(1), Arrays.asList(5));
+    }
+
+    @Test
+    public void twitter_scenario_2() throws Exception {
+        Twitter twitter = new Twitter();
+        twitter.postTweet(1, 5);
+        twitter.postTweet(1, 3);
+        twitter.postTweet(1, 101);
+        twitter.postTweet(1, 13);
+        twitter.postTweet(1, 10);
+        twitter.postTweet(1, 2);
+        twitter.postTweet(1, 94);
+        twitter.postTweet(1, 505);
+        twitter.postTweet(1, 333);
+        assertEquals(twitter.getNewsFeed(1), Arrays.asList(333,505,94,2,10,13,101,3,5));
+
     }
 }
