@@ -1,7 +1,8 @@
 package com.sbk.leetcode.tree;
 
 public class TreeUtils {
-    static TreeNode fromArray(Integer[] a) {
+
+    static TreeNode fromArray(Integer... a) {
         return fromArray(a, 0);
     }
 
