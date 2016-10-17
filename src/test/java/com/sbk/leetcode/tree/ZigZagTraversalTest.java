@@ -23,8 +23,8 @@ public class ZigZagTraversalTest {
 
     @Test
     public void zigzagLevelOrder_2() throws Exception {
-        List<List<Integer>> res =  zzt.zigzagLevelOrder(TreeUtils.fromArray(3,9,20,null,null,15,7));
-        assertEquals(res, asList(singletonList(3), asList(9,20), asList(15,17)));
+        List<List<Integer>> res =  zzt.zigzagLevelOrder(TreeUtils.fromArray(3,9,20,null,null,15,17));
+        assertEquals(res, asList(singletonList(3), asList(20,9), asList(15,17)));
     }
 
     @Test
