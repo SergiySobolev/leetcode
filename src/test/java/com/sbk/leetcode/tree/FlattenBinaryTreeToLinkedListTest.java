@@ -24,14 +24,14 @@ public class FlattenBinaryTreeToLinkedListTest {
     public void flatten_2() throws Exception {
         TreeNode input = TreeUtils.fromArray(1,2,3);
         f.flatten(input);
-        assertArrayEquals(TreeUtils.toArray(input), new Integer[]{1,null,2,null,null,3});
+        assertArrayEquals(TreeUtils.toArray(input), new Integer[]{1,null,2,null,null,null, 3});
     }
 
     @Test
     public void flatten_3() throws Exception {
         TreeNode input = TreeUtils.fromArray(1,2,3,4);
         f.flatten(input);
-        assertArrayEquals(TreeUtils.toArray(input), new Integer[]{1,null,2,null,null,3, null,null,null,null,4});
+        assertArrayEquals(TreeUtils.toArray(input), new Integer[]{1,null,2,null,null,null,4,null,null,null, null,null,null,null,3});
     }
 
     @Test
